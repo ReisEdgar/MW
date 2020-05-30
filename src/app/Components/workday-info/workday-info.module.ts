@@ -4,7 +4,8 @@ import { HoursComponent } from './hours/hours.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { AdditionalHoursComponent } from './additional-hours/additional-hours.component';
 import {MatListModule, MatList, MatListItem} from '@angular/material/list';
-import { MatGridList } from '@angular/material/grid-list';
+import { MatGridList, MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -12,13 +13,12 @@ import { MatGridList } from '@angular/material/grid-list';
     HoursComponent,
     ExpensesComponent,
     AdditionalHoursComponent,
-    MatList,
-    MatListItem,
-    MatGridList
   ],
   imports: [
-    
-    ],
+    MatGridListModule,
+    MatListModule,
+    MatTableModule
+  ],
   providers: [],
   exports: [WorkdayInfoComponent]
 })

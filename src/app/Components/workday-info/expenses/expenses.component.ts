@@ -15,3 +15,4 @@ export class ExpensesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+}

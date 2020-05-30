@@ -8,7 +8,6 @@ import { TimesheetEvent } from './Components/workday-info/models/timesheetEvents
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  days: Day[] = [];
-  timesheetEvents: TimesheetEvent[] = [];
+
   title = 'MW';
 }

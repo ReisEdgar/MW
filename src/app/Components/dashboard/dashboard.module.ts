@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   declarations: [
-   MatButton
-
+   DashboardComponent
   ],
   imports: [
     MatButtonModule
     ],
   providers: [],
+  exports:[DashboardComponent]
 })
 export class DashboardModule { }
