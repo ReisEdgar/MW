@@ -1,23 +1,5 @@
-<mat-grid-list cols="7" rowHeight="200px">
-    <mat-grid-tile>
-        <app-day-slot></app-day-slot>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-day-slot></app-day-slot>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-day-slot></app-day-slot>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-day-slot></app-day-slot>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-day-slot></app-day-slot>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-day-slot></app-day-slot>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-day-slot></app-day-slot>
+<mat-grid-list cols="7" rowHeight="120px">
+    <mat-grid-tile *ngFor="let day of days">
+        <app-day-slot [day]="day"> </app-day-slot>
     </mat-grid-tile>
 </mat-grid-list>

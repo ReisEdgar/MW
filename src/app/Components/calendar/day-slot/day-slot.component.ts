@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSliderModule } from '@angular/material/slider';
+import { Component, OnInit, Input } from '@angular/core';
+import { Day } from '../models/day';
 
 @Component({
   selector: 'app-day-slot',
@@ -8,7 +8,7 @@ import { MatSliderModule } from '@angular/material/slider';
 })
 export class DaySlotComponent implements OnInit {
 
-  date: Date = new Date(2020,2,2);
+  @Input() day: Day;
   constructor() { }
 
   ngOnInit(): void {
