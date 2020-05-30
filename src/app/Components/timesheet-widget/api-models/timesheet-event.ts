@@ -1,4 +1,4 @@
-export interface TimesheetEvent{
+export interface ApiTimesheetEvent{
     date: Date,
     quantity: number,
     price: number,
