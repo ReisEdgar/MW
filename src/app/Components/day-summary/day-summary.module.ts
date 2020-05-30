@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { WorkdayInfoComponent } from './workday-info.component';
+import { DaySummaryComponent } from './day-summary.component';
 import { HoursComponent } from './hours/hours.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { AdditionalHoursComponent } from './additional-hours/additional-hours.component';
@@ -9,7 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
-    WorkdayInfoComponent,
+    DaySummaryComponent,
     HoursComponent,
     ExpensesComponent,
     AdditionalHoursComponent,
@@ -20,6 +20,6 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule
   ],
   providers: [],
-  exports: [WorkdayInfoComponent]
+  exports: [DaySummaryComponent]
 })
-export class WorkdayInfoModule { }
+export class DaySummaryModule { }

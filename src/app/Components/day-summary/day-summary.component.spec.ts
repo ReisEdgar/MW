@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkdayInfoComponent } from './workday-info.component';
+import { DaySummaryComponent } from './day-summary.component';
 
-describe('WorkdayInfoComponent', () => {
-  let component: WorkdayInfoComponent;
-  let fixture: ComponentFixture<WorkdayInfoComponent>;
+describe('DaySummaryComponent', () => {
+  let component: DaySummaryComponent;
+  let fixture: ComponentFixture<DaySummaryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkdayInfoComponent ]
+      declarations: [ DaySummaryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WorkdayInfoComponent);
+    fixture = TestBed.createComponent(DaySummaryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Day } from './Components/calendar/models/day';
-import { TimesheetEvent } from './Components/workday-info/models/timesheetEvents';
 
 @Component({
   selector: 'app-root',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TimesheetEvent } from '../workday-info/models/timesheetEvents';
-import { Day } from '../calendar/models/day';
-import { TimesheetEventService } from './timesheet-event..service';
+import { TimesheetEventService } from './service/timesheet-event.service';
+import { DaySlot } from '../calendar/models/day-slot';
+import { DaySummaryEvents } from '../day-summary/models/day-summary-events';
 
 @Component({
   selector: 'app-timesheet-widget',
@@ -9,9 +9,9 @@ import { TimesheetEventService } from './timesheet-event..service';
   styleUrls: ['./timesheet-widget.component.css']
 })
 export class TimesheetWidgetComponent implements OnInit {
-  days: Day[] = [];
-  timesheetEvents: TimesheetEvent[] = [];
-  
+
+  days:DaySlot[];
+  daySummaryEvents:DaySummaryEvents;
   constructor(private eventService: TimesheetEventService) { }
 
   ngOnInit(): void {

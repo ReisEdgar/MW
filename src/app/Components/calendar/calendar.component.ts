@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Day } from './models/day';
+import { DaySlot } from './models/day-slot';
 
 @Component({
   selector: 'app-calendar',
@@ -9,7 +9,7 @@ import { Day } from './models/day';
 
 export class CalendarComponent implements OnInit {
   
-  @Input() days: Day[];
+  @Input() days: DaySlot[];
 
   constructor() {    
    }
