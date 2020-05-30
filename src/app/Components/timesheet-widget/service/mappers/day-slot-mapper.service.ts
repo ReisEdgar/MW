@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpHelperService } from '../../../helpers/http-helper.service';
 import { Day } from '../../api-models/day';
 import { DaySlot } from 'src/app/Components/calendar/models/day-slot';
 import { DayState } from 'src/app/Components/calendar/models/day-state';
