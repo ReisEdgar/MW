@@ -7,6 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { WorkdayInfoModule } from '../workday-info/workday-info.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
 import { CalendarModule } from '../calendar/calendar.module';
+import {  HttpClientModule } from '@angular/common/http';
+import { HttpHelperService } from '../helpers/http-helper.service';
+import { TimesheetEventService } from './timesheet-event..service';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,13 @@ import { CalendarModule } from '../calendar/calendar.module';
     WorkdayInfoModule,
     MatTableModule,
     DashboardModule,
-    CalendarModule
+    CalendarModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpHelperService,
+    TimesheetEventService
+  ],
   exports: [TimesheetWidgetComponent]
 })
 export class TimesheetWidgetModule { }
