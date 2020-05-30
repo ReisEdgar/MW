@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Day } from './Components/calendar/models/day';
+import { TimesheetEvent } from './Components/workday-info/models/timesheetEvents';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Day } from './Components/calendar/models/day';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  days:Day[]=[];
+  days: Day[] = [];
+  timesheetEvents: TimesheetEvent[] = [];
   title = 'MW';
 }

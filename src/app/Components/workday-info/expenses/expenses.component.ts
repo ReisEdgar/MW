@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ExpensesEvent } from '../models/expensesEvent';
 
 @Component({
   selector: 'app-expenses',
@@ -7,23 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpensesComponent implements OnInit {
   displayedColumns: string[] = ['type', 'quantity', 'total'];
-  dataSource = DATA;
+  @Input() expenses: ExpensesEvent[];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-}
-
-interface ExpensesItem {
-  type: string;
-  quantity: number;  
-  total: number;  
-}
-
-const DATA: ExpensesItem[] = [
-  {type: "test", quantity: 2, total: 5 },
-  {type: "test", quantity: 2, total: 5 },
-  {type: "test", quantity: 2, total: 5 },
-];

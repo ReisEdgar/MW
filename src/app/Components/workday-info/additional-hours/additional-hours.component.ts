@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AdditionalHoursEvent } from '../models/additionalHoursEvent';
 
 @Component({
   selector: 'app-additional-hours',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdditionalHoursComponent implements OnInit {
 
   displayedColumns: string[] = ['type', 'amount'];
-  dataSource = DATA;
+  @Input() additionalHours: AdditionalHoursEvent[];
 
   constructor() { }
 
@@ -16,15 +17,3 @@ export class AdditionalHoursComponent implements OnInit {
   }
 
 }
-
-
-interface AdditionalHoursItem {
-  type: string;
-  amount: number;
-}
-
-const DATA: AdditionalHoursItem[] = [
-  {type: "test", amount: 2.5},
-  {type: "test", amount: 2.5},
-  {type: "test", amount: 2.5},
-];

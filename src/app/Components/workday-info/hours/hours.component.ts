@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Timestamp } from 'rxjs';
+import { ExpensesEvent } from '../models/expensesEvent';
+import { HoursEvent } from '../models/hoursEvent';
 
 @Component({
   selector: 'app-hours',
@@ -9,7 +11,7 @@ import { Timestamp } from 'rxjs';
 export class HoursComponent implements OnInit {
 
   displayedColumns: string[] = ['type', 'duration'];
-  dataSource = DATA;
+  @Input() hours: HoursEvent[];
 
   constructor() { }
 
@@ -17,15 +19,3 @@ export class HoursComponent implements OnInit {
   }
 
 }
-
-
-interface HoursItem {
-  type: string;
-  duration: string;  
-}
-
-const DATA: HoursItem[] = [
-  {type: "test", duration: "7:30" },
-  {type: "test", duration: "7:30" },
-  {type: "test", duration: "7:30" },
-];
