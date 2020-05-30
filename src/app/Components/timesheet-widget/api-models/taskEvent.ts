@@ -1,5 +1,4 @@
-export interface ApiTimesheetEvent{
-    date: Date,
+export interface TaskEvent{
     quantity: number,
     price: number,
     eventTypeName: string,
@@ -7,9 +6,4 @@ export interface ApiTimesheetEvent{
     isHoursEventType: boolean,
     isAdditionalHoursEventType: boolean,
     isWorkHour: boolean,
-    isApproved: boolean,
-    isRejected: boolean,
-    tasksCount: number,
-    firstTaskStart: Date,
-    lastTaskEnd: Date
 }
