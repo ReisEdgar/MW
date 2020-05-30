@@ -1,0 +1,14 @@
+.dot {
+    height: 5px;
+    width: 5px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .day-square{
+    background-color: #F08900;
+    border-radius: 5%;
+    height: 60px;
+    width: 60px;
+  }
