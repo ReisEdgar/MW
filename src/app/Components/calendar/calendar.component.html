@@ -1,5 +1,13 @@
-<mat-grid-list cols="7" rowHeight="120px">
-    <mat-grid-tile *ngFor="let day of days">
-        <app-day-slot [day]="day"> </app-day-slot>
-    </mat-grid-tile>
-</mat-grid-list>
+<div>
+    <p>{{ selectedDate | date:'MMMM d' }}</p>
+
+    <mat-grid-list cols="7" rowHeight="120px">
+
+        <mat-grid-tile *ngFor="let day of daySlots">
+            <app-day-slot [day]="day"> </app-day-slot>
+        </mat-grid-tile>
+
+
+    </mat-grid-list>
+    <p>{{ selectedDate | date:'MMMM dd.MM.yyyy' }}</p>
+</div>
