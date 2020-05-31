@@ -13,8 +13,8 @@ export class CalendarComponent implements OnInit {
   selectedDate:Date;
   constructor() {   
     this.days = this.sortByDate(this.days);
-    let today = this.days.find(x => x.isToday);
-    this.selectedDate = new Date(today.date);
+    let selected = this.days.find(x => x.isSelected);
+    this.selectedDate = new Date(selected.date);
    }
 
   ngOnInit(): void {
