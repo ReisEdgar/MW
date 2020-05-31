@@ -137,20 +137,19 @@ export const MockData: Day[] = [
         tasks: [
             {
                 isApproved: false, isRejected: false, events: [
-                    { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
-                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+                    { quantity: 2, price: 2, eventTypeName: "myTest", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
 
                 ]
             },
             {
                 isApproved: true, isRejected: false, events: [
-                    { quantity: 2, price: 2, eventTypeName: "Liftleie dagpris", isExpenseType: true, isHoursEventType: false, isAdditionalHoursEventType: false, isWorkHour: false },
+                    { quantity: 2, price: 2, eventTypeName: "Lorem  dagpris", isExpenseType: true, isHoursEventType: false, isAdditionalHoursEventType: false, isWorkHour: false },
                 ]
             },
             {
                 isApproved: true, isRejected: false, events: [
-                    { quantity: 2.5, price: 2, eventTypeName: "Liftleie timepris", isExpenseType: false, isHoursEventType: false, isAdditionalHoursEventType: true, isWorkHour: false },
-                    { quantity: 6, price: 2, eventTypeName: "Løfte", isExpenseType: false, isHoursEventType: false, isAdditionalHoursEventType: true, isWorkHour: false },
+                    { quantity: 5, price: 5, eventTypeName: "Liftleie test timepris", isExpenseType: false, isHoursEventType: false, isAdditionalHoursEventType: true, isWorkHour: false },
+                    { quantity: 1, price: 14, eventTypeName: "Lorem ipsum Løfte", isExpenseType: false, isHoursEventType: false, isAdditionalHoursEventType: true, isWorkHour: false },
                 ]
             },
         ]

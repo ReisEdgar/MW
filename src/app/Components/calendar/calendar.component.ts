@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DaySlot } from './models/day-slot';
 import { environment } from 'src/environments/environment';
 import { areDatesEqual } from '../helpers/date-helper';
@@ -13,6 +13,8 @@ export class CalendarComponent implements OnInit {
   
   selectedDate:Date;
   private _daySlots:DaySlot[];
+  @Output() daySelected = new EventEmitter<Date>();
+
 
   @Input() set daySlots(input: DaySlot[]) {
     if(input === undefined){
@@ -48,6 +50,7 @@ export class CalendarComponent implements OnInit {
     });
     this.daySlots.find(x => x === day).isSelected = true;
     this.selectedDate = new Date(day.date);    
+    this.daySelected.next(day.date);
   }
  
   private sortByDate(days: DaySlot[]): DaySlot[] {

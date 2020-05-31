@@ -8,7 +8,7 @@ import { ExpensesEvent } from '../models/expensesEvent';
 })
 export class ExpensesComponent implements OnInit {
   displayedColumns: string[] = ['type', 'quantity', 'total'];
-  @Input() expenses: ExpensesEvent[];
+  @Input() expensesEvents: ExpensesEvent[];
 
   constructor() { }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DaySummaryEvents } from './models/day-summary-events';
+import { HoursEvent } from './models/hoursEvent';
+import { ExpensesEvent } from './models/expensesEvent';
+import { AdditionalHoursEvent } from './models/additionalHoursEvent';
 
 @Component({
   selector: 'app-day-summary',
@@ -8,8 +11,20 @@ import { DaySummaryEvents } from './models/day-summary-events';
 })
 export class DaySummaryComponent implements OnInit {
   
-  @Input() daySummaryEvents: DaySummaryEvents[];
+  @Input() set daySummaryEvents(input: DaySummaryEvents) {
+    if(input === undefined){
+      return;
+    }
+    this.hoursEvents = input.hours;
+    this.expensesEvents = input.expenses;
+    this.additionalHoursEvents = input.additionalHours;
+    this.selectedDate = input.date;
+ }
 
+  hoursEvents:HoursEvent[];
+  expensesEvents:ExpensesEvent[];
+  additionalHoursEvents:AdditionalHoursEvent[];
+  selectedDate:Date;
   constructor() { }
 
   ngOnInit(): void {

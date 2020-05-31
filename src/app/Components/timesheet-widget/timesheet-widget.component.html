@@ -1,3 +1,3 @@
-<app-calendar [daySlots]="daySlots"></app-calendar>
-<app-day-summary [daySummaryEvents]="daySummaryEvents"></app-day-summary>
+<app-calendar [daySlots]="daySlots" (daySelected)="onDaySelected($event)"></app-calendar>
+<app-day-summary [daySummaryEvents]="currentDaySummaryEvents"></app-day-summary>
 <app-dashboard></app-dashboard>

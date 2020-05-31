@@ -20,7 +20,7 @@ export class TimesheetWidgetComponent implements OnInit {
 
   daySlots:DaySlot[];
   daySummaryEvents:DaySummaryEvents[];
-  currentDaySummaryEvent:DaySummaryEvents;
+  currentDaySummaryEvents:DaySummaryEvents;
   
   constructor(private eventService: TimesheetEventService, private daySlotMapper: DaySlotMapperService,
     private daySummaryMapper: DaySummaryMapperService) {  
@@ -31,10 +31,10 @@ export class TimesheetWidgetComponent implements OnInit {
       eventService.getTimesheetEvents(this.numberOfPreviousDays, this.initialDate).subscribe((response) =>{
         this.daySlots = daySlotMapper.getDaySlots(response);
         this.daySummaryEvents = daySummaryMapper.mapToDaySummaryEvents(response);
-        this.onDateSelection(this.daySlots.find(x => areDatesEqual(x.date, this.initialDate)));
+        this.onDaySelected(this.daySlots.find(x => areDatesEqual(x.date, this.initialDate)).date);
 
         this.setInitialDate(this.daySlots, this.initialDate);
-        this.onDateSelection(this.daySlots.find(x => x.isSelected));
+        this.onDaySelected(this.daySlots.find(x => x.isSelected).date);
       });
      }
 
@@ -50,7 +50,7 @@ export class TimesheetWidgetComponent implements OnInit {
     return days;
   }
 
-  onDateSelection(day:DaySlot){
-    this.currentDaySummaryEvent = this.daySummaryEvents.find(x => areDatesEqual(x.date, day.date));
+  onDaySelected(date:Date){
+    this.currentDaySummaryEvents = this.daySummaryEvents.find(x => areDatesEqual(x.date, date));
   }
 }

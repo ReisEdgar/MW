@@ -9,7 +9,7 @@ import { AdditionalHoursEvent } from '../models/additionalHoursEvent';
 export class AdditionalHoursComponent implements OnInit {
 
   displayedColumns: string[] = ['type', 'amount'];
-  @Input() additionalHours: AdditionalHoursEvent[];
+  @Input() additionalHoursEvents: AdditionalHoursEvent[];
 
   constructor() { }
 
