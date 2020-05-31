@@ -1,3 +1,7 @@
+<div>
+<p>{{ selectedDate | date:'MMMM dd.MM.yyyy' }}</p>
+<button mat-button color="warn">Go to timesheet</button>
+
 <mat-grid-list cols="1" rowHeight="200px">
     <mat-grid-tile *ngIf="hoursEvents.length > 0" >
             <app-hours [hoursEvents]="hoursEvents"></app-hours>
@@ -9,3 +13,4 @@
         <app-additional-hours [additionalHoursEvents]="additionalHoursEvents"></app-additional-hours>
     </mat-grid-tile>
 </mat-grid-list>
+</div>

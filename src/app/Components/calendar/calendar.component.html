@@ -1,4 +1,5 @@
 <div>
+        <span class="clickable material-icons" (click)="goToToday()"> calendar_today </span>
 <div>
     <p>{{ selectedDate | date:'MMMM d' }}</p>
 
@@ -10,9 +11,7 @@
 
 
     </mat-grid-list>
-    <p>{{ selectedDate | date:'MMMM dd.MM.yyyy' }}</p>
 </div>
 
-<span class="clickable material-icons" (click)="goToToday()"> calendar_today </span>
 
 </div>

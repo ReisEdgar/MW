@@ -8,7 +8,7 @@
         <div *ngIf="day.hoursWorked > 0; else noTasks">
 
                 <div>
-                        <p>{{ day.date | date:'HH:mm' }}</p>
+                        <p>{{ day.hoursWorked | durationPipe }}</p>
                 </div>
                 <span [ngClass]='getDayState(day)'></span>
         </div>
