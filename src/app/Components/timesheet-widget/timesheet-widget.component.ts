@@ -4,6 +4,7 @@ import { DaySlot } from '../calendar/models/day-slot';
 import { DaySummaryEvents } from '../day-summary/models/day-summary-events';
 import { DaySlotMapperService } from './service/mappers/day-slot-mapper.service';
 import { DaySummaryMapperService } from './service/mappers/day-summary-mapper.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-timesheet-widget',
@@ -12,7 +13,7 @@ import { DaySummaryMapperService } from './service/mappers/day-summary-mapper.se
 })
 
 export class TimesheetWidgetComponent implements OnInit {
-  readonly numberOfPreviousDays = 7;
+  readonly numberOfPreviousDays = 5;
   readonly initialDate;
 
   daySlots:DaySlot[];
@@ -21,12 +22,12 @@ export class TimesheetWidgetComponent implements OnInit {
   
   constructor(private eventService: TimesheetEventService, private daySlotMapper: DaySlotMapperService,
     private daySummaryMapper: DaySummaryMapperService) {  
-      let today = new Date();
+      let today = new Date(environment.today);
       today.setHours(0,0,0,0);
       this.initialDate = today;
 
       eventService.getTimesheetEvents(this.numberOfPreviousDays, this.initialDate).subscribe((response) =>{
-        this.daySlots = daySlotMapper.getDaySlot(response);
+        this.daySlots = daySlotMapper.getDaySlots(response);
         this.daySummaryEvents = daySummaryMapper.mapToDaySummaryEvents(response);
         this.onDateSelection(this.daySlots.find(x => this.areDatesEqual(x.date, this.initialDate)));
       });
@@ -44,6 +45,8 @@ export class TimesheetWidgetComponent implements OnInit {
 
     this.daySlots.find(x => x.date === day.date).isSelected = true;
   }
+
+
 
   private areDatesEqual(date1:Date, date2: Date):boolean{
     return date1.getFullYear() === date2.getFullYear() 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Day } from '../../api-models/day';
 import { DaySlot } from 'src/app/Components/calendar/models/day-slot';
 import { DayState } from 'src/app/Components/calendar/models/day-state';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { DayState } from 'src/app/Components/calendar/models/day-state';
 export class DaySlotMapperService {
   constructor() { }
 
-  getDaySlot(days: Day[]): DaySlot[] {
+  getDaySlots(days: Day[]): DaySlot[] {
     days = this.sortByDate(days);
     return this.mapToDaySlots(days);
   }
@@ -56,7 +57,7 @@ export class DaySlotMapperService {
     return DayState.Other;
   }
   private isDateToday(date: Date): boolean {
-    let today = new Date();
+    let today = new Date(environment.today);
     
     return date.getFullYear() === today.getFullYear() && 
     date.getMonth() === today.getMonth() && 
@@ -70,8 +71,8 @@ export class DaySlotMapperService {
     }
     let saturday = new Date(daySlots[indexOfFriday].date);
     let sunday = new Date(daySlots[indexOfFriday].date);
-    saturday.setDate(1);
-    sunday.setDate(2);
+    saturday.setDate(saturday.getDate() + 1);
+    sunday.setDate(sunday.getDate() + 2);
     let saturdaySlot: DaySlot = {
       date: new Date(saturday),
       hoursWorked: 0,
