@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DaySlot } from './models/day-slot';
 import { environment } from 'src/environments/environment';
+import { areDatesEqual } from '../helpers/date-helper';
 
 @Component({
   selector: 'app-calendar',
@@ -36,11 +37,17 @@ export class CalendarComponent implements OnInit {
 
   }
 
+  goToToday(){
+    let today = this.daySlots.find(x => areDatesEqual(x.date, environment.today));
+    this.onDaySelected(today);
+  }
+
   onDaySelected(day:DaySlot){
     this.daySlots.forEach(element => {
       element.isSelected = false;
     });
     this.daySlots.find(x => x === day).isSelected = true;
+    this.selectedDate = new Date(day.date);    
   }
  
   private sortByDate(days: DaySlot[]): DaySlot[] {
