@@ -7,6 +7,7 @@ import {MatListModule, MatList, MatListItem} from '@angular/material/list';
 import { MatGridList, MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { DurationPipe } from './pipes/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
     HoursComponent,
     ExpensesComponent,
     AdditionalHoursComponent,
+    DurationPipe
   ],
   imports: [
     MatGridListModule,

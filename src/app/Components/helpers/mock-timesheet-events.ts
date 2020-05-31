@@ -40,13 +40,13 @@ export const MockData: Day[] = [
             },
             {
                 isApproved: true, isRejected: false, events: [
-                    { quantity: 2, price: 2, eventTypeName: "Liftleie dagpris", isExpenseType: true, isHoursEventType: false, isAdditionalHoursEventType: false, isWorkHour: false },
+                    { quantity: 2.3333, price: 2, eventTypeName: "Liftleie dagpris", isExpenseType: true, isHoursEventType: false, isAdditionalHoursEventType: false, isWorkHour: false },
                 ]
             },
             {
                 isApproved: true, isRejected: false, events: [
-                    { quantity: 2.5, price: 2, eventTypeName: "Liftleie timepris", isExpenseType: false, isHoursEventType: false, isAdditionalHoursEventType: true, isWorkHour: false },
-                    { quantity: 6, price: 2, eventTypeName: "Løfte", isExpenseType: false, isHoursEventType: false, isAdditionalHoursEventType: true, isWorkHour: false },
+                    { quantity: 2.555, price: 2, eventTypeName: "Liftleie timepris", isExpenseType: false, isHoursEventType: false, isAdditionalHoursEventType: true, isWorkHour: false },
+                    { quantity: 6.1, price: 2, eventTypeName: "Løfte", isExpenseType: false, isHoursEventType: false, isAdditionalHoursEventType: true, isWorkHour: false },
                 ]
             },
         ]
