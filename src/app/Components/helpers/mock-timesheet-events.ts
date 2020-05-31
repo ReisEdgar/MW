@@ -57,13 +57,13 @@ export const MockData: Day[] = [
         lastTaskEnd: days[1],
         taskCount: 3,
         tasks: [
-            {
+           /* {
                 isApproved: false, isRejected: true, events: [
                     { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
                     { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
 
                 ]
-            },
+            },*/
             {
                 isApproved: true, isRejected: false, events: [
                     { quantity: 2, price: 2, eventTypeName: "Liftleie dagpris", isExpenseType: true, isHoursEventType: false, isAdditionalHoursEventType: false, isWorkHour: false },

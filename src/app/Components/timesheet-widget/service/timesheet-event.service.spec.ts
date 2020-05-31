@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TimesheetEventService } from './timesheet-event..service';
+import { TimesheetEventService } from './timesheet-event.service';
 
 describe('TimesheetEventService', () => {
   let service: TimesheetEventService;
