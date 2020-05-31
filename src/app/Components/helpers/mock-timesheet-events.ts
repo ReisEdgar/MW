@@ -58,7 +58,7 @@ export const MockData: Day[] = [
         taskCount: 3,
         tasks: [
             {
-                isApproved: true, isRejected: false, events: [
+                isApproved: false, isRejected: true, events: [
                     { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
                     { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
 
@@ -111,8 +111,8 @@ export const MockData: Day[] = [
         tasks: [
             {
                 isApproved: true, isRejected: false, events: [
-                    { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
-                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+                    { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: false },
+                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: false },
 
                 ]
             },
@@ -136,7 +136,7 @@ export const MockData: Day[] = [
         taskCount: 3,
         tasks: [
             {
-                isApproved: true, isRejected: false, events: [
+                isApproved: false, isRejected: false, events: [
                     { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
                     { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
 

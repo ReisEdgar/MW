@@ -1,15 +1,18 @@
-<div>
-
+<div [ngClass]='["clickable", day.isWeekend ? "weekend" : ""]' (click)="onDaySelected(day)">
         <div>
-                <p>{{ day.date | date:'EE' }}</p>
+                <div>{{ day.date | date:'EE' }}</div>
+        </div>
+        <div [ngClass]='getConditionalClasses(day)'>
+                <div>{{ day.date | date:'d' }}</div>
+        </div>
+        <div *ngIf="day.hoursWorked > 0; else noTasks">
 
+                <div>
+                        <p>{{ day.date | date:'HH:mm' }}</p>
+                </div>
+                <span [ngClass]='getDayState(day)'></span>
         </div>
-        <div class="day-square">
-                <p>{{ day.date | date:'d' }}</p>
-        </div>
-        <div>
-                <p>{{ day.date | date:'HH:mm' }}</p>
-
-        </div>
-        <span class="dot"></span>
+        <ng-template #noTasks>
+                <span class="material-icons">horizontal_rule</span>
+        </ng-template>
 </div>

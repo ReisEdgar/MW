@@ -41,7 +41,7 @@ export class DaySlotMapperService {
 
   private getHoursWorked(day: Day): number {
     let workHourEvents = day.tasks.map(x => x.events.filter(x => x.isWorkHour)).reduce((a, b) => a.concat(b));
-    return workHourEvents.map(x => x.quantity).reduce((a, b) => a + b);
+    return workHourEvents.map(x => x.quantity).reduce((a, b) => a + b,0);
   }
 
   private getDayState(day: Day): DayState {

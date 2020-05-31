@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { DaySlot } from '../models/day-slot';
 import { DayState } from '../models/day-state';
 
@@ -10,41 +10,40 @@ import { DayState } from '../models/day-state';
 export class DaySlotComponent implements OnInit {
 
   @Input() day: DaySlot;
+  
+  @Output() daySelected = new EventEmitter<DaySlot>();
+
+  onDaySelected(day:DaySlot): void {
+    this.daySelected.next(day);
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  daySelected(selected:boolean){
-    this.day.isSelected = selected;
-  }
-
   getConditionalClasses(day:DaySlot):string[]{
-    let classes: string[];
+    let classes: string[]= [];
     if(day.isToday){
       classes.push("today");
     }
     if(day.isSelected){
       classes.push("selected");
     }
-    if(day.isWeekend){
-      classes.push("weekend")
-    }
     return classes;
   }
 
   getDayState(day:DaySlot):string{
+    let className = "day-state";
     if(day.dayState === DayState.Approved){
-      return "day-state-approved";
+      return `${className} day-state-approved`;
     }
     if(day.dayState === DayState.Rejected){
-      return "day-state-rejected";
-    }
-    if(day.dayState === DayState.NoTasks){
-      return "day-state-noTasks";
+      return `${className} day-state-rejected`;
     }
     if(day.dayState === DayState.Other){
-      return "day-state-other";
+      return `${className} day-state-other`;
     }
+    return className;
   } 
 }

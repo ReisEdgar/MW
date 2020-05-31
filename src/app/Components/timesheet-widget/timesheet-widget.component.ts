@@ -5,6 +5,8 @@ import { DaySummaryEvents } from '../day-summary/models/day-summary-events';
 import { DaySlotMapperService } from './service/mappers/day-slot-mapper.service';
 import { DaySummaryMapperService } from './service/mappers/day-summary-mapper.service';
 import { environment } from 'src/environments/environment';
+import { areDatesEqual } from '../helpers/date-helper';
+import { _getOptionScrollPosition } from '@angular/material/core';
 
 @Component({
   selector: 'app-timesheet-widget',
@@ -14,7 +16,7 @@ import { environment } from 'src/environments/environment';
 
 export class TimesheetWidgetComponent implements OnInit {
   readonly numberOfPreviousDays = 5;
-  readonly initialDate;
+  readonly initialDate = environment.today;
 
   daySlots:DaySlot[];
   daySummaryEvents:DaySummaryEvents[];
@@ -29,28 +31,26 @@ export class TimesheetWidgetComponent implements OnInit {
       eventService.getTimesheetEvents(this.numberOfPreviousDays, this.initialDate).subscribe((response) =>{
         this.daySlots = daySlotMapper.getDaySlots(response);
         this.daySummaryEvents = daySummaryMapper.mapToDaySummaryEvents(response);
-        this.onDateSelection(this.daySlots.find(x => this.areDatesEqual(x.date, this.initialDate)));
+        this.onDateSelection(this.daySlots.find(x => areDatesEqual(x.date, this.initialDate)));
+
+        this.setInitialDate(this.daySlots, this.initialDate);
+        this.onDateSelection(this.daySlots.find(x => x.isSelected));
       });
      }
 
   ngOnInit(): void {
   }
   
-  onDateSelection(day:DaySlot){
-    this.currentDaySummaryEvent = this.daySummaryEvents.find(x => this.areDatesEqual(x.date, day.date));
-
-    this.daySlots.forEach(element => {
+  setInitialDate(days:DaySlot[], initialDate:Date):DaySlot[]{
+    days.forEach(element => {
       element.isSelected = false;
     });
 
-    this.daySlots.find(x => x.date === day.date).isSelected = true;
+    this.daySlots.find(x => areDatesEqual(x.date, initialDate)).isSelected = true;
+    return days;
   }
 
-
-
-  private areDatesEqual(date1:Date, date2: Date):boolean{
-    return date1.getFullYear() === date2.getFullYear() 
-    && date1.getMonth() === date2.getMonth() 
-    && date1.getDate() === date2.getDate()
-}
+  onDateSelection(day:DaySlot){
+    this.currentDaySummaryEvent = this.daySummaryEvents.find(x => areDatesEqual(x.date, day.date));
+  }
 }
