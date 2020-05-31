@@ -8,6 +8,12 @@ let day4 = new Date(environment.today);
 let day3 = new Date(environment.today);
 let day2 = new Date(environment.today);
 
+let taskStart = new Date();
+let taskEnd = new Date();
+
+taskStart.setHours(7,30,0,0);
+taskEnd.setHours(16,30,0,0);
+
 let days: Date[] = [
     day7, day6, day5, day4, day3
 ];
@@ -27,8 +33,8 @@ isWeekend = true;
 export const MockData: Day[] = [
     {
         date: days[0],
-        firstTaskStart: days[0],
-        lastTaskEnd: days[0],
+        firstTaskStart: taskStart,
+        lastTaskEnd: taskEnd,
         taskCount: 3,
         tasks: [
             {
@@ -53,20 +59,17 @@ export const MockData: Day[] = [
     },
     {
         date: days[1],
-        firstTaskStart: days[1],
-        lastTaskEnd: days[1],
+        firstTaskStart: taskStart,
+        lastTaskEnd: taskEnd,
         taskCount: 3,
         tasks: [
-           /* {
-                isApproved: false, isRejected: true, events: [
-                    { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
-                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
 
-                ]
-            },*/
             {
                 isApproved: true, isRejected: false, events: [
-                    { quantity: 2, price: 2, eventTypeName: "Liftleie dagpris", isExpenseType: true, isHoursEventType: false, isAdditionalHoursEventType: false, isWorkHour: false },
+                    { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+
                 ]
             },
             {
@@ -79,14 +82,13 @@ export const MockData: Day[] = [
     },
     {
         date: days[2],
-        firstTaskStart: days[2],
-        lastTaskEnd: days[2],
+        firstTaskStart: taskStart,
+        lastTaskEnd: taskEnd,
         taskCount: 3,
         tasks: [
             {
                 isApproved: true, isRejected: false, events: [
-                    { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
-                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+                    { quantity: 4.5, price: 2, eventTypeName: "Non work hours", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: false },
 
                 ]
             },
@@ -105,14 +107,14 @@ export const MockData: Day[] = [
     },
     {
         date: days[3],
-        firstTaskStart: days[3],
-        lastTaskEnd: days[3],
+        firstTaskStart: taskStart,
+        lastTaskEnd: taskEnd,
         taskCount: 3,
         tasks: [
             {
-                isApproved: true, isRejected: false, events: [
-                    { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: false },
-                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: false },
+                isApproved: false, isRejected: true, events: [
+                    { quantity: 7.5, price: 2, eventTypeName: "Rejected", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+                    { quantity: 1, price: 2, eventTypeName: "Rejected 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
 
                 ]
             },
@@ -131,13 +133,13 @@ export const MockData: Day[] = [
     },
     {
         date: days[4],
-        firstTaskStart: days[4],
-        lastTaskEnd: days[4],
+        firstTaskStart: taskStart,
+        lastTaskEnd: taskEnd,
         taskCount: 3,
         tasks: [
             {
                 isApproved: false, isRejected: false, events: [
-                    { quantity: 2, price: 2, eventTypeName: "myTest", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+                    { quantity: 2, price: 2, eventTypeName: "Not approved, not rejected", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
 
                 ]
             },

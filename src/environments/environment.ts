@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: "https://localhost:3000",
-  today: new Date(2020,6,1) // used to simulate current date in dev env
+  today: new Date() // used to simulate current date in dev env
 };
 
 /*
