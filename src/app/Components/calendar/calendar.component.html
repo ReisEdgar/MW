@@ -1,17 +1,29 @@
 <div>
-        <span class="clickable material-icons" (click)="goToToday()"> calendar_today </span>
-<div>
-    <p>{{ selectedDate | date:'MMMM d' }}</p>
+    <mat-grid-list cols="7">
+        <mat-grid-tile colspan="4">
+            <div class="calendar-date">
+                <p>{{ selectedDate | date:'MMMM yyyy' }}</p>
+            </div>
+        </mat-grid-tile>
 
-    <mat-grid-list cols="7" rowHeight="200px">
+        <mat-grid-tile colspan="3">
+            <div class="calendar-today">
+                <span class="clickable material-icons" (click)="goToToday()"> calendar_today </span>
+            </div>
+        </mat-grid-tile>
 
-        <mat-grid-tile *ngFor="let day of daySlots">
+        <mat-grid-tile rowspan="3" *ngFor="let day of daySlots">
             <app-day-slot (daySelected)="onDaySelected($event)" [day]="day"> </app-day-slot>
         </mat-grid-tile>
 
+        <mat-grid-tile colspan="4">
+            <p>{{ selectedDate | date:'MMMM dd.MM.yyyy' }}</p>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="3">
+            <button mat-button color="warn">Go to timesheet</button>
+        </mat-grid-tile>
 
     </mat-grid-list>
-</div>
-
 
 </div>

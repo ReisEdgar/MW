@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HoursEvent } from '../models/hoursEvent';
+import { HoursEventProperties } from '../models/hoursEventsProperties';
 
 @Component({
   selector: 'app-hours',
@@ -9,7 +10,14 @@ import { HoursEvent } from '../models/hoursEvent';
 export class HoursComponent implements OnInit {
 
   displayedColumns: string[] = ['type', 'duration'];
-  @Input() hoursEvents:HoursEvent[];
+  @Input() set hoursEventsProperties(input: HoursEventProperties) {
+    this.hoursEvents = input.hoursEvents;
+    this.workStart = input.firstTaskStart;
+    this.workEnd = input.lastTaskEnd;
+  }
+  hoursEvents: HoursEvent[];
+  workStart: Date;
+  workEnd: Date;
 
   constructor() { }
 

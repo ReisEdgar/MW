@@ -5,6 +5,7 @@ import { TaskEvent } from '../../api-models/taskEvent';
 import { HoursEvent } from 'src/app/Components/day-summary/models/hoursEvent';
 import { AdditionalHoursEvent } from 'src/app/Components/day-summary/models/additionalHoursEvent';
 import { DaySummaryEvents } from 'src/app/Components/day-summary/models/day-summary-events';
+import { HoursEventProperties } from 'src/app/Components/day-summary/models/hoursEventsProperties';
 
 @Injectable({
     providedIn: 'root'
@@ -17,13 +18,13 @@ export class DaySummaryMapperService {
         let daySummaryEvents: DaySummaryEvents[] = [];
         days.forEach(day => {
             let events = day.tasks.map(x => x.events).reduce((a, b) => a.concat(b));
-            let daySummaryEvent: DaySummaryEvents={
-            date: day.date,
-            hours: this.mapToHoursEvents(events),
-            expenses: this.mapToExpensesEvents(events),
-            additionalHours: this.mapToAdditionalHoursEvents(events),
-        };
-        daySummaryEvents.push(daySummaryEvent)
+            let daySummaryEvent: DaySummaryEvents = {
+                date:day.date,
+                hoursEventProperties: this.mapToHoursEventProperties(day),
+                expensesEvents: this.mapToExpensesEvents(events),
+                additionalHoursEvents: this.mapToAdditionalHoursEvents(events),
+            };
+            daySummaryEvents.push(daySummaryEvent)
 
         });
         return daySummaryEvents;
@@ -43,7 +44,8 @@ export class DaySummaryMapperService {
         return additionalHoursEvents;
     }
 
-    private mapToHoursEvents(events: TaskEvent[]): HoursEvent[] {
+    private mapToHoursEventProperties(day: Day): HoursEventProperties {
+        let events = day.tasks.map(x => x.events).reduce((a, b) => a.concat(b));
         let hoursTaskEvent = events.filter(x => x.isHoursEventType);
         let hoursEvents: HoursEvent[] = [];
 
@@ -54,7 +56,11 @@ export class DaySummaryMapperService {
             };
             hoursEvents.push(hoursEvent);
         });
-        return hoursEvents;
+        return {
+            hoursEvents: hoursEvents,
+            firstTaskStart: day.firstTaskStart,
+            lastTaskEnd: day.lastTaskEnd
+        }
     }
 
     private mapToExpensesEvents(events: TaskEvent[]): ExpensesEvent[] {

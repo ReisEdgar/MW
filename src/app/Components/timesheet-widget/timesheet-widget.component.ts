@@ -54,9 +54,13 @@ export class TimesheetWidgetComponent implements OnInit {
     let events = this.daySummaryEvents.find(x => areDatesEqual(x.date, date));
     if(events === undefined){
       events = {
-        hours:[],
-        additionalHours:[],
-        expenses:[],
+        hoursEventProperties:{
+          hoursEvents: [],
+          firstTaskStart:null,
+          lastTaskEnd:null
+        },
+        additionalHoursEvents:[],
+        expensesEvents:[],
         date:date
       }
     }

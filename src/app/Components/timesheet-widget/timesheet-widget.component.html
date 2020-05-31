@@ -1,3 +1,5 @@
-<app-calendar [daySlots]="daySlots" (daySelected)="onDaySelected($event)"></app-calendar>
-<app-day-summary [daySummaryEvents]="currentDaySummaryEvents"></app-day-summary>
-<app-dashboard></app-dashboard>
+<div class="container">
+        <app-calendar class="calendar" [daySlots]="daySlots" (daySelected)="onDaySelected($event)"></app-calendar>
+        <app-day-summary [daySummaryEvents]="currentDaySummaryEvents"></app-day-summary>
+        <app-dashboard></app-dashboard>        
+</div>

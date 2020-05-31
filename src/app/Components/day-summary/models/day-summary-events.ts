@@ -1,10 +1,10 @@
 import { ExpensesEvent } from './expensesEvent';
-import { HoursEvent } from './hoursEvent';
 import { AdditionalHoursEvent } from './additionalHoursEvent';
+import { HoursEventProperties } from './hoursEventsProperties';
 
 export interface DaySummaryEvents {
-    date: Date,
-    hours: HoursEvent[],
-    expenses: ExpensesEvent[],
-    additionalHours: AdditionalHoursEvent[]
+    date:Date,
+    hoursEventProperties: HoursEventProperties,
+    expensesEvents: ExpensesEvent[],
+    additionalHoursEvents: AdditionalHoursEvent[]
 }
