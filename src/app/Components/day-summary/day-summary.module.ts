@@ -6,6 +6,7 @@ import { AdditionalHoursComponent } from './additional-hours/additional-hours.co
 import {MatListModule, MatList, MatListItem} from '@angular/material/list';
 import { MatGridList, MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MatTableModule } from '@angular/material/table';
   imports: [
     MatGridListModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    CommonModule
   ],
   providers: [],
   exports: [DaySummaryComponent]
