@@ -9,15 +9,15 @@ import { DaySlot } from './models/day-slot';
 
 export class CalendarComponent implements OnInit {
   
-  @Input() days: DaySlot[];
+  @Input() daySlots: DaySlot[];
   selectedDate:Date;
   constructor() {   
-    this.days = this.sortByDate(this.days);
-    let selected = this.days.find(x => x.isSelected);
-    this.selectedDate = new Date(selected.date);
-   }
+  }
 
   ngOnInit(): void {
+    this.daySlots = this.sortByDate(this.daySlots);
+    let selected = this.daySlots.find(x => x.isSelected);
+    this.selectedDate = new Date(selected.date);    
   }
 
   private sortByDate(days: DaySlot[]): DaySlot[] {

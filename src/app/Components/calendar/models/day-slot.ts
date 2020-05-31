@@ -6,5 +6,5 @@ export interface DaySlot {
     isWeekend: boolean,
     isToday:boolean,
     dayState:DayState,
-    isSelected:boolean
+    isSelected:boolean,
 }

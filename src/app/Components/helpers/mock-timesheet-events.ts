@@ -1,14 +1,28 @@
-import { GroupedTimesheetEvent } from '../timesheet-widget/api-models/grouped-timesheet-event';
+import { Day } from '../timesheet-widget/api-models/day';
+
 let day7 = new Date();
-let day6 = new Date(new Date().setDate(new Date().getDate()-1))
-let day5 = new Date(new Date().setDate(new Date().getDate()-2))
-let day4 = new Date(new Date().setDate(new Date().getDate()-3))
-let day3 = new Date(new Date().setDate(new Date().getDate()-4))
-let day2 = new Date(new Date().setDate(new Date().getDate()-5))
-let day1 = new Date(new Date().setDate(new Date().getDate()-6))
-export const MockData: GroupedTimesheetEvent[] = [
+let day6 = new Date(new Date().setDate(new Date().getDate() - 1))
+let day5 = new Date(new Date().setDate(new Date().getDate() - 2))
+let day4 = new Date(new Date().setDate(new Date().getDate() - 3))
+let day3 = new Date(new Date().setDate(new Date().getDate() - 4))
+let day2 = new Date(new Date().setDate(new Date().getDate() - 5))
+let day1 = new Date(new Date().setDate(new Date().getDate() - 6))
+export const MockData: Day[] = [
     {
         date: day7,
+        firstTaskStart:day7,
+        lastTaskEnd:day7,
+        taskCount: 1,
+        tasks: [
+            {
+                isApproved: true, isRejected: false, events: [
+                    { quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+                    { quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true },
+
+                ]
+            }
+        ]
+    }];/*
         hoursEvents: [
             { date: day7, quantity: 7.5, price: 2, eventTypeName: "Arbeidstid", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true, isApproved: true, isRejected: false, tasksCount: 3, firstTaskStart: day7, lastTaskEnd: day7 },
             { date: day7, quantity: 1, price: 2, eventTypeName: "Overtid 50%", isExpenseType: false, isHoursEventType: true, isAdditionalHoursEventType: false, isWorkHour: true, isApproved: true, isRejected: false, tasksCount: 3, firstTaskStart: day7, lastTaskEnd: day7 },
@@ -89,3 +103,4 @@ export const MockData: GroupedTimesheetEvent[] = [
     },
 
 ]; 
+*/

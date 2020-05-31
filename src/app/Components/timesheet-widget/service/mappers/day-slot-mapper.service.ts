@@ -29,7 +29,8 @@ export class DaySlotMapperService {
         hoursWorked: this.getHoursWorked(day),
         dayState: this.getDayState(day),
         isToday: this.isDateToday(day.date),
-        isWeekend: false
+        isWeekend: false,
+        isSelected: false,
       };
       daysSlots.push(daySlot);
     });
@@ -56,13 +57,17 @@ export class DaySlotMapperService {
   }
   private isDateToday(date: Date): boolean {
     let today = new Date();
-    today.setHours(0, 0, 0, 0);
-    date.setHours(0, 0, 0, 0);
-    return date.getTime() === today.getTime();
+    
+    return date.getFullYear() === today.getFullYear() && 
+    date.getMonth() === today.getMonth() && 
+    date.getDate() === today.getDate();
   }
   
   private addWeekends(daySlots: DaySlot[]): DaySlot[] {
     let indexOfFriday = daySlots.findIndex(x => x.date.getDay() === 5);
+    if(indexOfFriday === -1){
+      return daySlots;
+    }
     let saturday = new Date(daySlots[indexOfFriday].date);
     let sunday = new Date(daySlots[indexOfFriday].date);
     saturday.setDate(1);
@@ -72,15 +77,18 @@ export class DaySlotMapperService {
       hoursWorked: 0,
       dayState: DayState.Other,
       isToday: this.isDateToday(saturday),
-      isWeekend: true
-    }
+      isWeekend: true,
+      isSelected:false
+    };
     let sundaySlot: DaySlot = {
       date: new Date(sunday),
       hoursWorked: 0,
       dayState: DayState.Other,
       isToday: this.isDateToday(sunday),
-      isWeekend: true
-    }
+      isWeekend: true,
+      isSelected: false
+    };
+    
     daySlots.splice(indexOfFriday + 1, 0, saturdaySlot);
     daySlots.splice(indexOfFriday + 2, 0, sundaySlot);
     return daySlots;

@@ -16,13 +16,15 @@ export class DaySummaryMapperService {
     mapToDaySummaryEvents(days: Day[]): DaySummaryEvents[] {
         let daySummaryEvents: DaySummaryEvents[] = [];
         days.forEach(day => {
-            let daySummaryEvent: DaySummaryEvents;
             let events = day.tasks.map(x => x.events).reduce((a, b) => a.concat(b));
-            daySummaryEvent.date = day.date;
-            daySummaryEvent.hours = this.mapToHoursEvents(events);
-            daySummaryEvent.expenses = this.mapToExpensesEvents(events);
-            daySummaryEvent.additionalHours = this.mapToAdditionalHoursEvents(events);
-            daySummaryEvents.push(daySummaryEvent);
+            let daySummaryEvent: DaySummaryEvents={
+            date: day.date,
+            hours: this.mapToHoursEvents(events),
+            expenses: this.mapToExpensesEvents(events),
+            additionalHours: this.mapToAdditionalHoursEvents(events),
+        };
+        daySummaryEvents.push(daySummaryEvent)
+
         });
         return daySummaryEvents;
     }

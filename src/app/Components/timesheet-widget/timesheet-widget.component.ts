@@ -10,31 +10,44 @@ import { DaySummaryMapperService } from './service/mappers/day-summary-mapper.se
   templateUrl: './timesheet-widget.component.html',
   styleUrls: ['./timesheet-widget.component.css']
 })
-  const numberOfPreviousDays = 7;
-  const initialDate = new Date();
+
 export class TimesheetWidgetComponent implements OnInit {
-   
-  days:DaySlot[];
+  readonly numberOfPreviousDays = 7;
+  readonly initialDate;
+
+  daySlots:DaySlot[];
   daySummaryEvents:DaySummaryEvents[];
   currentDaySummaryEvent:DaySummaryEvents;
   
   constructor(private eventService: TimesheetEventService, private daySlotMapper: DaySlotMapperService,
-    private daySummaryMapper: DaySummaryMapperService) {
-      eventService.getTimesheetEvents(numberOfPreviousDays, initialDate).subscribe((response) =>{
-        this.days = daySlotMapper.getDaySlot(response);
+    private daySummaryMapper: DaySummaryMapperService) {  
+      let today = new Date();
+      today.setHours(0,0,0,0);
+      this.initialDate = today;
+
+      eventService.getTimesheetEvents(this.numberOfPreviousDays, this.initialDate).subscribe((response) =>{
+        this.daySlots = daySlotMapper.getDaySlot(response);
         this.daySummaryEvents = daySummaryMapper.mapToDaySummaryEvents(response);
-        this.onDaySelection(this.days.find(x => x.date === initialDate));
+        this.onDateSelection(this.daySlots.find(x => this.areDatesEqual(x.date, this.initialDate)));
       });
      }
 
   ngOnInit(): void {
   }
   
-  onDaySelection(day:DaySlot){
-    this.currentDaySummaryEvent = this.daySummaryEvents.find(x => x.date === day.date);
-    this.days.forEach(element => {
+  onDateSelection(day:DaySlot){
+    this.currentDaySummaryEvent = this.daySummaryEvents.find(x => this.areDatesEqual(x.date, day.date));
+
+    this.daySlots.forEach(element => {
       element.isSelected = false;
     });
-    this.days.find(x => x.date === day.date).isSelected = true;
+
+    this.daySlots.find(x => x.date === day.date).isSelected = true;
   }
+
+  private areDatesEqual(date1:Date, date2: Date):boolean{
+    return date1.getFullYear() === date2.getFullYear() 
+    && date1.getMonth() === date2.getMonth() 
+    && date1.getDate() === date2.getDate()
+}
 }
